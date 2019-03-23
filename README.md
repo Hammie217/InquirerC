@@ -9,18 +9,18 @@ Include using:
 ```C
 #include "inquire.h"
 ```
+
 Create a list by:
+Defining options to be listed plus a terminating `NULL` as such:
 ``` C
-struct inquire_list i_list;
-char *list[5] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5"};
-i_list.list = list;
-i_list.len = LEN(list);
+char *list[] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5", NULL};
 ```
+
 Change the contents of list to whatever desired
 
 And call it by:
 ```C
-singleChoice(i_list)
+singleChoice(list)
 ```
 
 The position in the list array of what is selected is returned
@@ -31,12 +31,9 @@ Whole Example code:
 
 int main(int argc, char *argv[])
 {
-    struct inquire_list i_list;
-    char *list[5] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5"};
-    i_list.list = list;
-    i_list.len = LEN(list);
+    char *list[5] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5", NULL};
 
-    printf("Selected option: %s\n", list[singleChoice(i_list)]);
+    printf("Selected option: %s\n", list[singleChoice(list)]);
 }
 ```
 
@@ -54,6 +51,5 @@ Libraries required in inquire are all standard:
 
 ```C
 int getch(void)
-struct inquire_list
-int singleChoice(struct inquire_list <list>)
+int singleChoice(char *array[] <list>)
 ```

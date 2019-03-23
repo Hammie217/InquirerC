@@ -1,5 +1,3 @@
-#define LEN(arr) ((int)(sizeof(arr) / sizeof(arr)[0]))
-
 #include <stdio.h>
 #include <termios.h>
 #include <unistd.h>
@@ -27,21 +25,19 @@ int getch(void)
     return (c);
 }
 
-struct inquire_list
-{
-    char **list;
-    size_t len;
-};
-
-int singleChoice(struct inquire_list s_list)
+int singleChoice(char *arr[])
 {
 
-    int position = 1;        // variable to store list position
-    int maxPos = s_list.len; // variable to store max possible position to stop overflow
+    int position = 1;   // variable to store list position
+    int maxPos = 0;     // variable to store max possible position to stop overflow
+    while (arr[maxPos]) //not NULL
+    {                   //print all list items
+        maxPos++;
+    }
 
     for (int i = 0; i < maxPos; i++)
     { //print all list items
-        printf("   %s\n", s_list.list[i]);
+        printf("   %s\n", arr[i]);
     }
 
     printf("\e[?25l\033[38;2;51;102;255m"); //hide cursor and set arrow to blue(51,102,255)
