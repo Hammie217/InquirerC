@@ -51,5 +51,38 @@ Libraries required in inquire are all standard:
 
 ```C
 int getch(void)
-int singleChoice(char *array[] <list>)
+int singleChoice(char *array[])
+int *multiChoice(char *array[])
+```
+
+## Examples:
+### SingleChoice
+```C
+#include "inquire.h"
+
+int main(int argc, char *argv[])
+{
+    char *list[5] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5", NULL};
+
+    printf("Selected option: %s\n", list[singleChoice(list)]);
+}
+```
+### MultiChoice
+
+```C
+#include "inquire.h"
+
+int main(int argc, char *argv[])
+{
+    int *response;
+    char *list[] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5", NULL};
+
+    response = multiChoice(list);
+
+    printf("Choices:\n");
+    for (int i = 0; response[i] >= 0; i++)
+    {
+        printf("%s\n", list[response[i]]);
+    }
+}
 ```

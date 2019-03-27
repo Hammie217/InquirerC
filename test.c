@@ -2,7 +2,14 @@
 
 int main(int argc, char *argv[])
 {
+    int *response;
     char *list[] = {"Hello1", "Hello2", "Hello3", "Hello4", "Hello5", NULL};
 
-    printf("Selected option: %s\n", list[singleChoice(list)]); //print out selected option from list
+    response = multiChoice(list);
+
+    printf("Choices:\n");
+    for (int i = 0; response[i] >= 0; i++)
+    {
+        printf("%s\n", list[response[i]]);
+    }
 }
