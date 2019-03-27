@@ -86,5 +86,5 @@ int main(int argc, char *argv[])
     }
 }
 ```
-![MultiChoice GIF Example](https://i.imgur.com/KikESiu.gifv)
+![MultiChoice GIF Example](https://i.imgur.com/KikESiuh.gif)
 
