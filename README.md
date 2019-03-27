@@ -1,4 +1,4 @@
-# InquireC
+# InquirerC
 
 Easily make user list forms in C with a header file.
 
@@ -86,3 +86,5 @@ int main(int argc, char *argv[])
     }
 }
 ```
+![MultiChoice GIF Example](http://www.giphy.com/gifs/1mhkfFVxovHLa2ojrW)
+

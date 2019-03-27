@@ -25,6 +25,69 @@ int getch(void)
     assert(res == 0);
     return (c);
 }
+/*
+int *longList(char *arr[])
+{
+
+    int position = 1;   // variable to store list position
+    int maxPos = 0;     // variable to store max possible position to stop overflow
+    while (arr[maxPos]) //not NULL
+    {                   //print all list items
+        maxPos++;
+    }
+
+    for (int i = 0; i < maxPos; i++)
+    { //print all list items
+        printf("   %s\n", arr[i]);
+    }
+
+    printf("\e[?25l\033[38;2;51;102;255m"); //hide cursor and set arrow to blue(51,102,255)
+
+    printf("\033[%dA\u25B6\033[1D", maxPos); //move cursor to top value and draw arrow
+
+    do
+    {
+        char c = getch();
+        if (c == '\033')
+        {            // if the first value is esc
+            getch(); // skip the [
+            switch (getch())
+            { // the real value
+            case 'A':
+                if (position > 1)
+                {
+                    printf(" \033[1D");      //clear arrow from current space
+                    printf("\033[1A");       //move down a row
+                    printf("\u25B6\033[1D"); //draw arrow and move cursor backwords
+                    position--;
+                }
+                break;
+            case 'B':
+                if (position < maxPos)
+                {
+                    printf(" \033[1D");      //clear arrow
+                    printf("\033[1B");       //move down row
+                    printf("\u25B6\033[1D"); //draw arror and move cursor to start
+                    position++;
+                }
+                break;
+            }
+        }
+        else if (c == '\n')
+        { //when pressed enter
+            for (int i = position; i <= maxPos; i++)
+            { //move beneath bottom row
+                printf("\033[1B");
+            }
+            printf("\e[?25h\033[38;2;255;255;255m"); //turn cursor on and set color back to white
+
+            break;
+        }
+
+    } while (1);
+    return (position - 1);
+}
+*/
 
 int *multiChoice(char *arr[])
 {
